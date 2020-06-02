@@ -2,7 +2,7 @@ body { font-family: 'andy'; margin: 0; }
 body img { image-rendering: pixelated; width: 100%; }
 body main { height: 100%; width: 100%; overflow: hidden; }
 body main .rooms { display: flex; flex-direction: column-reverse; height: 100%; width: 100%; align-items: flex-start; position: absolute; }
-body main .rooms .room { position: relative; overflow: hidden; }
+body main .rooms .room { flex-shrink: 0; margin-top: -7%; position: relative; overflow: hidden; }
 body main .rooms .room .background { width: 100vw; position: relative; }
 body main .rooms .room .player { position: absolute; width: 9.23vw; left: 50%; bottom: 14.5%; display: flex; flex-wrap: wrap; justify-content: center; }
 body main .rooms .room .player span { color: #fff; white-space: nowrap; font-size: 10vw; text-shadow: #000 2px 2px 0px; }
