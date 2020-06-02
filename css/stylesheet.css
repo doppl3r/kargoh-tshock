@@ -1,0 +1,16 @@
+body { font-family: 'andy'; margin: 0; }
+body img { image-rendering: pixelated; width: 100%; }
+body main { display: flex; flex-direction: column-reverse; height: 100%; width: 100%; align-items: flex-start; }
+body main .room { position: relative; overflow: hidden; }
+body main .room .background { width: 100vw; position: relative; }
+body main .room .player { position: absolute; width: 9.23vw; left: 50%; bottom: 14.5%; display: flex; flex-wrap: wrap; justify-content: center; }
+body main .room .player span { color: #fff; white-space: nowrap; font-size: 10vw; text-shadow: #000 2px 2px 0px; }
+body main .room .player .hide { display: none; }
+
+@font-face {
+    font-family: 'andy';
+    src: url('../fonts/andy.woff2') format('woff2'),
+        url('../fonts/andy.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}

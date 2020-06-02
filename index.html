@@ -1,13 +1,17 @@
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script>
-    var url = 'https://cors-anywhere.herokuapp.com/kargoh.serv.nu:7878/v2/users/activelist?token=HMACSHA256';
-    $.ajax({
-        type: "POST",
-        url: url,
-        success: function(response) {
-            var users = response.activeusers;
-            var usersArray = users.replace(/\s/g, ' ').split(' ');
-            console.log(usersArray);
-        }
-    });
-</script>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <title>Kargoh TShock List</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="kargoh.tv tshock list">
+        <meta name="author" content="Jacob DeBenedetto">
+        <meta name="viewport" content="width=device-width, minimum-scale=1">
+        <link rel='shortcut icon' type='image/x-icon' href='img/favicon.png' />
+        <link href="css/stylesheet.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <main></main>
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
