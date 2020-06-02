@@ -1,7 +1,7 @@
 class App {
     constructor() {
         this.players = [];
-        this.home = $('main');
+        this.rooms = $('.rooms.current');
         this.updateList();
         this.startTimer();
     }
@@ -11,26 +11,28 @@ class App {
         $.ajax({
             type: "POST",
             url: url,
+            timeout: 5000,
             success: function(response) {
                 var users = response.activeusers;
-                console.log(users);
                 app.players = users.trim().split('\t');
+                app.updateHome();
+            },
+            error: function(response) {
                 app.updateHome();
             }
         });
     }
 
     updateHome() {
-        var playerCount = this.players.length;
-        var newHome = $('<main></main>');
-
-        for (var i = 0; i < playerCount; i++) {
+        var newRooms = $('.rooms.new').empty().hide();
+        if (this.players.length <= 0) this.players = [''];
+        for (var i = 0; i < this.players.length; i++) {
             var name = this.players[i];
             var left = this.randomNumber(25, 75);
             var direction = this.randomNumber(-1, 1) >= 0 ? 1 : -1;
             var playerClass = name.length <= 0 ? 'hide' : '';
 
-            newHome.append(
+            newRooms.append(
                 '<div class="room">' +
                     '<img class="background" src="img/room.png">' +
                     '<div class="player" style="left: ' + left + '%;">' +
@@ -40,7 +42,9 @@ class App {
                 '</div>'
             );
         }
-        this.home.html(newHome.html());
+        newRooms.fadeIn(1000, function() {
+            app.rooms.html(newRooms.html());
+        });
     }
 
     randomNumber(min, max) {  
